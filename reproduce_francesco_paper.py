@@ -55,3 +55,10 @@ class SolveLinearCombination:
         prob.solve()
 
         return (prob.value, x.value)
+
+    def calculate_cosine_similarity(self,
+        x : np.array,
+        y : np.array
+        ) -> float:
+
+        return np.dot(x, y) / (norm(x) * norm(y))
