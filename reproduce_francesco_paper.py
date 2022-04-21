@@ -62,3 +62,33 @@ class SolveLinearCombination:
         ) -> float:
 
         return np.dot(x, y) / (norm(x) * norm(y))
+
+def test():
+
+    ## load COSMIC hg38 data
+    cosmic_df = pd.read_csv('data/COSMIC_v3.2_SBS_GRCh38.txt', sep='\t', index_col=0)
+
+    ## load test data
+    sample_df = pd.read_csv('data/test.SBS96.all', sep='\t', index_col=0)
+    sample_df = sample_df / sample_df.sum()  ## make freq from count
+
+    ## calculate similarity for all pairs from COSMIC signatures
+    cosine_similarities = []
+    all_pairs = list(combinations(cosmic_df.columns, 2))
+    for pair in all_pairs:
+        A = np.array(cosmic_df.loc[:, [*pair]])
+        y = np.array(sample_df.iloc[:,0])
+
+        solver = SolveLinearCombination(A, y)
+        _, coeff = solver.solve_with_sum_square(A, y)
+
+        predict = A @ coeff
+        cos_sim = solver.calculate_cosine_similarity(predict, y)
+        cosine_similarities.append(cos_sim)
+    
+    cosine_similarities = sorted(cosine_similarities, reverse=True)
+    print(cosine_similarities[:10])
+    print(len(cosine_similarities))
+
+if __name__ == '__main__':
+    test()
