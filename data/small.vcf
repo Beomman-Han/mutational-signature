@@ -1,0 +1,24 @@
+##fileformat=VCFv4.0
+##fileDate=20100610 
+##source=glfTools v3
+##reference=1000GenomesPilot-NCBI36 
+##phasing=NA
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With Mapped Reads">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership, build 129">
+##INFO=<ID=H2,Number=0,Type=Flag,Description="HapMap2 membership">
+##FILTER=<ID=NUYR,Description="Variant in non-unique Y region">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype	Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Depth">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+Y	2728456	rs2058276	T	C	32	.	AC=2;AN=2;DB;DP=182;H2;NS=65
+Y	2734240	.	G	A	31	.	AC=1;AN=2;DP=196;NS=63
+Y	2743242	.	C	T	25	.	AC=1;AN=2;DP=275;NS=66
+Y	2746727	.	A	G	34	.	AC=2;AN=2;DP=179;NS=64
+Y	2777970	.	T	A	67	.	AC=1;AN=2;DP=225;NS=67
+Y	2782506	rs2075640	A	G	38	.	AC=1;AN=2;DB;DP=254;H2;NS=66
+Y	2783755	.	G	A	51	.	AC=1;AN=2;DP=217;NS=67
+Y	2788927	rs56004558	A	G	38	.	AC=1;AN=2;DB;DP=173;NS=60
